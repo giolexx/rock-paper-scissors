@@ -28,9 +28,6 @@ function playOneRound(playerSelection,computerSelection){
     playerSelection=playerSelection.toLowerCase();
     let message='xd';
     switch(playerSelection) {
-
-      
-
         case "rock" : 
             if(compareStrings(aux,'scissors'))
                 message='You won';
@@ -58,7 +55,7 @@ function playOneRound(playerSelection,computerSelection){
                 message='Draw';
         break;
     }
-   return message;
+  return message;
 }
 function game(){
     let playerScore=0,computerScore=0;
@@ -77,5 +74,88 @@ function game(){
     else if(playerScore<computerScore)
         return 'You lost the game';
      return 'You drawn the game';
+     
 }
-alert(game());
+//alert(game());
+let rounds=0;
+let winPlayer=0;
+let winComputer=0;
+const buton = document.querySelector('.rock');
+const rezultatrunda=document.querySelector(".roundResult");
+const rezultatMeci=document.querySelector('.matchResult');
+//buton.onclick= () => playerChoice='rock';
+//buton.addEventListener('click',playOneRound('rock',getComputerChoice()));
+buton.addEventListener('click', () => {
+   let match = playOneRound('rock',getComputerChoice());
+   if(match==='You won'){
+    winPlayer++;
+    //rezultatrunda.textContent='Round result is: You won';
+   }
+    else if(match==='You lost'){
+        winComputer++;
+      //  rezultatrunda.textContent='Round result is: You lost';
+    }
+    //else rezultatrunda.textContent='Round result is: You draw';
+    rezultatrunda.textContent=`Your current result is: ${winPlayer}, \n Computer's current result is: ${winComputer}`;
+    rounds++;
+    if(winPlayer==5 || winComputer==5){
+        if(winPlayer>winComputer)
+            rezultatMeci.textContent='Match result is: You won';
+        if(winPlayer<winComputer)
+            rezultatMeci.textContent='Match result is: You lost';
+        if(winPlayer==winComputer)
+        rezultatMeci.textContent='Match result is: You draw';
+    }
+   
+});
+const buton2 = document.querySelector('.paper');
+//buton2.onclick = () => playerChoice='paper';
+buton2.addEventListener('click', () => {
+   let match= playOneRound('paper',getComputerChoice());
+   if(match==='You won'){
+    winPlayer++;
+  //  rezultatrunda.textContent='Round result is: You won';
+   }
+    else if(match==='You lost'){
+        winComputer++;
+       // rezultatrunda.textContent='Round result is: You lost';
+    }
+   // else rezultatrunda.textContent='Round result is: You draw';
+    rezultatrunda.textContent=`Your current result is: ${winPlayer}, \n Computer's current result is: ${winComputer}`;
+    rounds++;
+    if(winPlayer==5 || winComputer==5){
+        if(winPlayer>winComputer)
+            rezultatMeci.textContent='Match result is: You won';
+        if(winPlayer<winComputer)
+            rezultatMeci.textContent='Match result is: You lost';
+        if(winPlayer==winComputer)
+        rezultatMeci.textContent='Match result is: You draw';
+    }
+
+ });
+
+const buton3 = document.querySelector('.scissors');
+//buton3.onclick = () => playerChoice='scissors';
+buton3.addEventListener('click', () => {
+   let match= playOneRound('scissors',getComputerChoice());
+   if(match==='You won'){
+    winPlayer++;
+  //  rezultatrunda.textContent='Round result is: You won';
+   }
+    else if(match==='You lost'){
+        winComputer++;
+     //   rezultatrunda.textContent='Round result is: You lost';
+    }
+   // else rezultatrunda.textContent='Round result is: You draw';
+    rezultatrunda.textContent=`Your current result is: ${winPlayer}, \n Computer's current result is: ${winComputer}`;
+    rounds++;
+    if(winPlayer==5 || winComputer==5){
+        if(winPlayer>winComputer)
+            rezultatMeci.textContent='Match result is: You won';
+        if(winPlayer<winComputer)
+            rezultatMeci.textContent='Match result is: You lost';
+        if(winPlayer==winComputer)
+        rezultatMeci.textContent='Match result is: You draw';
+    }
+ });
+
